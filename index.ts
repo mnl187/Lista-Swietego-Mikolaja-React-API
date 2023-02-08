@@ -1,4 +1,5 @@
 import * as express from "express";
+import * as cors from 'cors';
 import "express-async-errors";
 import {handlebarsHelpers} from "./utils/handlebars-helpers";
 import {giftRouter} from "./routers/gift";
@@ -10,6 +11,10 @@ import * as methodOverride from "method-override";
 import "./utils/db";
 
 const app = express();
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+}))
 
 // app.use(methodOverride('_method'));
 // app.use(express.urlencoded({
