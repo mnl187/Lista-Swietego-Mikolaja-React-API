@@ -15,6 +15,20 @@ giftRouter
         });
     })
 
+    .delete('/id', async (req, res) => {
+        const gift = await GiftRecord.getOne(req.params.id);
+
+        if (!gift) {
+            throw new ValidationError('No such gift.');
+        }
+
+        if (await gift.countGivenGifts() > 0) {
+            throw new ValidationError('Cannot remove given gift.');
+        }
+
+        res.end();
+    })
+
     .post('/', async (req, res) => {
         const data = {
             ...req.body,
