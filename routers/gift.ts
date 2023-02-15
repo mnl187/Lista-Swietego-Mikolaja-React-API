@@ -26,6 +26,8 @@ giftRouter
             throw new ValidationError('Cannot remove given gift.');
         }
 
+        await gift.delete();
+
         res.end();
     })
 
