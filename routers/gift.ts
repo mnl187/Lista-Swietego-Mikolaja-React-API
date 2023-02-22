@@ -1,6 +1,7 @@
 import {Router} from "express";
 import {GiftRecord} from "../records/gift.record";
 import {ValidationError} from "../utils/errors";
+import {CreateGiftReq} from "../types";
 
 
 export const giftRouter = Router();
