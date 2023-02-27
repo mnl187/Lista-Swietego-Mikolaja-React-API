@@ -1,7 +1,7 @@
 import {Router} from "express";
 import {GiftRecord} from "../records/gift.record";
 import {ValidationError} from "../utils/errors";
-import {CreateGiftReq} from "../types";
+import {CreateGiftReq, GetSingleGiftRes} from "../types";
 
 
 export const giftRouter = Router();
@@ -15,7 +15,7 @@ giftRouter
         res.json({
             gift,
             givenCount,
-        });
+        } as GetSingleGiftRes);
     })
 
     .delete('/:id', async (req, res) => {
