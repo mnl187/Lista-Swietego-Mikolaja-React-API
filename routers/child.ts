@@ -23,7 +23,7 @@ childRouter // /child
         const newChild = new ChildRecord(req.body);
         await newChild.insert();
 
-        res.redirect('/child');
+        res.json(newChild);
     })
 
     .patch('/gift/:childId', async (req, res) => {
@@ -44,5 +44,6 @@ childRouter // /child
         child.giftId = gift?.id ?? null;
         await child.update();
 
-        res.redirect('/child');
+        res.json(child);
+
     });
