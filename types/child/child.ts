@@ -8,6 +8,6 @@ export interface ListChildrenRes {
 
 export type CreateChildReq = Omit<ChildEntity, 'id'>;
 
-export interface SetGiftFirChildReq {
-    iftId: string;
+export interface SetGiftForChildReq {
+    giftId: string;
 }
