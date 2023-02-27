@@ -8,11 +8,13 @@ export const giftRouter = Router();
 
 giftRouter
 
-    .get('/', async (req, res) => {
-        const giftsList = await GiftRecord.listAll();
+    .get('/giftId', async (req, res) => {
+        const gift = await GiftRecord.getOne(req.params.giftId);
+        const givenCount = await gift.countGivenGifts();
 
         res.json({
-            giftsList,
+            gift,
+            givenCount,
         });
     })
 
