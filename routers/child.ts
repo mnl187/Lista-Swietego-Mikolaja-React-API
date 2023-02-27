@@ -2,6 +2,7 @@ import {Router} from "express";
 import {ChildRecord} from "../records/child.record";
 import {GiftRecord} from "../records/gift.record";
 import {ValidationError} from "../utils/errors";
+import {ListChildrenRes} from "../types/child/child";
 
 
 export const childRouter = Router();
@@ -15,7 +16,7 @@ childRouter // /child
         res.json( {
             childrenList,
             giftsList,
-        });
+        } as ListChildrenRes);
     })
 
     .post('/', async (req, res) => {
